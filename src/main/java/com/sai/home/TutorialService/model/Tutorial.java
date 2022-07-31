@@ -1,0 +1,74 @@
+package com.sai.home.TutorialService.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@Entity
+@Table(name = "tutorials")
+@ApiModel(value = "Tutorial", description = "Tutorial info")
+public class Tutorial {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@ApiModelProperty(value = "Id of the tutorial")
+	private long id;
+
+	@Column(name = "title")
+	@ApiModelProperty(value = "Title of the tutorial")
+	private String title;
+
+	@Column(name = "description")
+	@ApiModelProperty(value = "Tutorial description")
+	private String description;
+
+	@Column(name = "published")
+	@ApiModelProperty(value = "Tutorial published or not")
+	private boolean published;
+
+	public Tutorial() {
+
+	}
+
+	public Tutorial(String title, String description, boolean published) {
+		this.title = title;
+		this.description = description;
+		this.published = published;
+	}
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public boolean isPublished() {
+		return published;
+	}
+
+	public void setPublished(boolean published) {
+		this.published = published;
+	}
+}
